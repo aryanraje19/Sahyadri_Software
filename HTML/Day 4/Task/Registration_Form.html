@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User registration</title>
+</head>
+
+<body>
+  <fieldset>
+    <legend>
+      <b>
+        <h1>“Registration Form"</h1>
+      </b>
+    </legend>
+    <label for="Frame">First Name :-</label><br />
+    <input type="text" id="fname" name="fname" /><br />
+    <label for="Frame">Last Name :-</label><br />
+    <input type="text" id="lname" name="lname" /><br />
+    <label for="Frame">Email :-</label><br />
+    <input type="text" id="email" name="email" /><br />
+    <label for="Frame">Password :-</label><br />
+    <input type="text" id="pass" name="password" /><br />
+    <label for="Frame">Gender :-</label><br />
+
+    <!--RADIO BUTTON  -->
+    <input type="radio" id="male" name="Gender" value="male" />
+    <label for="male">Male</label><br />
+    <input type="radio" id="female" name="Gender" value="female" />
+    <label for="female">Female</label><br />
+    <input type="radio" id="other" name="Gender" value="other" />
+    <label for="female">Other</label><br />
+    <br />
+
+    <h2>Hobbies :-</h2>
+    <form>
+
+      <input type="checkbox" id="reading" name="hobby" value="reading">
+      <label for="reading">Reading</label><br>
+
+      <input type="checkbox" id="travelling" name="hobby" value="travelling">
+      <label for="travelling">Travelling</label><br>
+
+      <input type="checkbox" id="sports" name="hobby" value="sports">
+      <label for="sports">Sports</label><br>
+
+
+      <h2>Country:-</h2>
+      <select id="country" name="country">
+        <option value="usa">USA</option>
+        <option value="canada">Canada</option>
+      </select><br /><br />
+      <hr>
+        <button type="submit">Register</button>
+        
+  </fieldset>
+  
+</body>
+
+</html>
