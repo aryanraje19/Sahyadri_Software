@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>transform_transition_Animation</title>
+</head>
+<body class="p-10">
+    <h1>instant hover using only hover</h1>
+    <button class="ml-5 p-6 bg-blue-400 transition hover:bg-teal-800 text white">Click me</button><br><br><hr>
+
+    <h1>it take some time hover using ease-in-out ,delay</h1>
+    <button class="ml-5 p-6 bg-blue-400 transition hover:bg-teal-800 ease-in-out delay-150 text white">Click me</button><br><br><br><hr>
+
+    <h1>Animation</h1><br><br>
+    <button class="ml-5 p-6 bg-blue-400 transition hover:bg-teal-800 ease-in-out delay-150 text white duration-1000 hover:translate-y-1 hover:scale-110 rotate-45">Click me</button><br><br><hr>
+    
+
+
+    <!-- Animation -->
+    <div class="flex justiy-center">
+        <div class="p-20 ml-20 mt-20 w-20 bg-red-200 animate-spin">Spin</div>
+        <div class="p-20 ml-20 mt-20 w-20 bg-teal-200 animate-ping">Ping</div>
+        <div class="p-20 ml-20 mt-20 w-20 bg-green-200 animate-pulse">Pulse</div>
+        <div class="p-20 ml-20 mt-20 w-20 bg-blue-200 animate-bounce">Bounce</div>
+       </div>
+       <br><br>
+
+       <h1>Spin</h1>
+       <button type="button" class="bg-indigo-500" disabled>
+        <svg class="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24">
+          <!-- ... -->
+        </svg>
+        Processing...
+      </button>
+</body>
+</html>

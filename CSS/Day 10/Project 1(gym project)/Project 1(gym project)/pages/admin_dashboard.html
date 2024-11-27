@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome CDN -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    rel="stylesheet"
+  />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    .menu-item {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 16.8px;
+      letter-spacing: 0.05em;
+      text-align: left;
+      
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+    }
+    .custom-element {
+      width: 66px;
+      height: 17px;
+      top: 143px;
+      left: 97px;
+      gap: 0px;
+      opacity: 0;
+      position: absolute; /* Ensure it aligns with the layout needs */
+    }
+  </style>
+  <title>Main dashboard</title>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Sidebar -->
+  <aside 
+    id="sidebar" 
+    class="fixed inset-y-0 left-0 z-50 w-64 bg-[#191919] text-white h-screen lg:translate-x-0 -translate-x-full transition-transform duration-300">
+    <div class="p-8">
+      <a href="./admin_dashboard.html"><img src="../assets/images/logo.png" alt="Logo" class="h-32 mx-auto mb-4 border-none"></a>
+     
+      <ul >
+        <!-- Admin Menu with Hoverable Submenu -->
+        <li class="mb-4 group relative hover:bg-[rgba(255,255,255,0.16)] rounded-md">
+          <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-700 rounded-md menu-item hover:text-[#FF9750] group-hover:bg-[rgba(255,255,255,0.16)]">
+            <i class="fa-solid fa-user-shield mr-3"></i> 
+            Admin
+            <i class="fa-solid fa-chevron-down ml-auto hidden group-hover:inline transition-transform transform "></i>
+          </a>
+          <ul class="ml-6 hidden group-hover:block">
+            <li>
+              <a href="./Staff_Trainee.html" class="flex items-center px-4 py-2 rounded-md menu-item hover:text-[#FF9750]">
+                <i class="fas fa-users mr-3"></i>
+                Staff / Trainers
+              </a>
+            </li>
+            <li>
+              <a href="./membership.html" class="flex items-center px-4 py-2 rounded-md menu-item hover:text-[#FF9750]">
+                <i class="fas fa-user-check mr-3"></i>
+                Membership
+              </a>
+            </li>
+            <li>
+              <a href="./All_classes.html" class="flex items-center px-4 py-2 rounded-md menu-item hover:text-[#FF9750]">
+                <i class="fas fa-chalkboard-teacher mr-3"></i>
+                All Classes
+              </a>
+            </li>
+            <li>
+              <a href="./attendance.html" class="flex items-center px-4 py-2 rounded-md menu-item hover:text-[#FF9750]">
+                <i class="fas fa-calendar-check mr-3"></i>
+                Attendance
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- All Members Menu with Hoverable Submenu -->
+        <li class=" mb-4 group relative hover:bg-[rgba(255,255,255,0.16)] rounded-md">
+          <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-700 rounded-md menu-item hover:text-[#FF9750] group-hover:bg-[rgba(255,255,255,0.16)]">
+          <i class="fa-solid fa-users mr-3"></i>
+          All Members
+          <i class="fa-solid fa-chevron-down ml-auto hidden group-hover:inline transition-transform transform hover:text-[#FF9750]"></i>
+        </a>
+          <ul class="ml-6 hidden group-hover:block">
+            <li>
+              <a href="./Add_Trainee.html" class="flex items-center px-4 py-2 rounded-md menu-item hover:text-[#FF9750]">
+                <i class="fas fa-user-plus mr-3"></i>
+                Add Trainee
+              </a>
+            </li>
+            <li>
+              <a href="./Dropped_Trainee.html" class="flex items-center px-4 py-2  rounded-md menu-item hover:text-[#FF9750]">
+                <i class="fa-solid fa-user-minus mr-3"></i>
+                Dropped Trainee
+              </a>
+            </li>
+            <li>
+              <a href="./member_details.html" class="flex items-center px-4 py-2 rounded-md menu-item hover:text-[#FF9750]">
+                <i class="fas fa-id-badge mr-3"></i>
+                Member Details
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Other Menus -->
+        <li class="mb-4">
+          <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-700 rounded-md menu-item hover:text-[#FF9750]">
+            <i class="fa-solid fa-dumbbell mr-3"></i>
+            Trainer
+          </a>
+        </li>
+
+        <li class="mb-4">
+          <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-700 rounded-md menu-item hover:text-[#FF9750]">
+            <i class="fas fa-users mr-3"></i>
+            Trainee
+          </a>
+        </li>
+        <!-- More Menus -->
+        <li class="mb-4">
+          <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-700 rounded-md menu-item hover:text-[#FF9750]">
+            <i class="fa-solid fa-notes-medical mr-3"></i>
+            Health Updates
+          </a>
+        </li>
+        <li class="mb-4">
+          <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-700 rounded-md menu-item hover:text-[#FF9750]">
+            <i class="fa-solid fa-money-check-dollar mr-3"></i>
+            Member Payments
+          </a>
+        </li>
+
+        <li class="mb-4">
+          <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-700 rounded-md menu-item hover:text-[#FF9750]">
+            <i class="fa-solid fa-tags mr-3"></i>
+            Plan
+          </a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Overlay -->
+  <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40"></div>
+
+  <!-- Menu Icon -->
+  <div class="p-4">
+    <button id="menu-icon" class="text-white text-2xl bg-[#191919] p-2 rounded-md lg:hidden">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+
+  <!-- Custom Element -->
+  <div class="custom-element"></div>
+
+  <script>
+    const menuIcon = document.getElementById('menu-icon');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+
+    // Function to toggle sidebar visibility
+    const toggleSidebar = () => {
+      const isHidden = sidebar.classList.contains('-translate-x-full');
+      if (isHidden) {
+        sidebar.classList.remove('-translate-x-full');
+        overlay.classList.remove('hidden');
+      } else {
+        sidebar.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+      }
+    };
+
+    // Event listener for the menu icon
+    menuIcon.addEventListener('click', toggleSidebar);
+
+    // Event listener for the overlay
+    overlay.addEventListener('click', toggleSidebar);
+  </script>
+
+<!--Header-->
+  <!-- Main Content -->
+  <div id="main-content" class="transform transition-transform duration-300 p-2 pt-0 lg:ml-64">
+    <!-- Header -->
+    <header class="flex flex-wrap items-center justify-between mb-6">
+      <h1 class="text-2xl font-bold">Welcome Admin!</h1>
+      <div class="flex items-center space-x-4 mt-4 md:mt-0">
+        <div class="relative">
+          <input
+            type="text"
+            placeholder="Search..."
+            class="border rounded-full py-2 px-4 focus:ring-2 focus:ring-gray-400"
+          />
+          <i
+            class="fa-solid fa-magnifying-glass absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+          ></i>
+        </div>
+        <i class="fa-solid fa-bell text-xl cursor-pointer"></i>
+        <i class="fa-solid fa-gear text-xl cursor-pointer"></i>
+        <span class="font-medium text-gray-800">Username</span>
+        <img
+          src=" ../assets/images/user.png"
+          alt="Admin Profile"
+          class="h-10 w-10 rounded-full border-2 border-gray-300"
+        />
+      </div>
+    </header>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8 px-6">
+  <div
+    class="bg-cover bg-center bg-no-repeat p-4 shadow rounded-lg h-40 relative flex items-end"
+    style="background-image: url('../assets/images/images 1.jpeg');"
+  >
+    <div class="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
+    <div class="flex justify-between w-full px-4 z-10 text-white">
+      <h2 class="font-semibold text-2xl">Classes</h2>
+      <p class="text-2xl font-bold">4</p>
+    </div>
+  </div>
+
+  <div
+    class="bg-cover bg-center bg-no-repeat p-4 shadow rounded-lg h-40 relative flex items-end "
+    style="background-image: url('../assets/images/images 2.jpeg');"
+  >
+    <div class="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
+    <div class="flex justify-between w-full px-4 z-10 text-white">
+      <h2 class="font-semibold text-2xl">Trainers</h2>
+      <p class="text-2xl font-bold">8</p>
+    </div>
+  </div>
+
+  <div
+    class="bg-cover bg-center bg-no-repeat p-4 shadow rounded-lg h-40 relative flex items-end "
+    style="background-image: url('../assets/images/images 3.jpeg');"
+  >
+    <div class="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
+    <div class="flex justify-between w-full px-4 z-10 text-white">
+      <h2 class="font-semibold text-2xl">Members</h2>
+      <p class="text-2xl font-bold">20</p>
+    </div>
+  </div>
+
+  <div
+    class="bg-cover bg-center bg-no-repeat p-4 shadow rounded-lg h-40 relative flex items-end "
+    style="background-image: url('../assets/images/images 4.jpeg');"
+  >
+    <div class="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
+    <div class="flex justify-between w-full px-4 z-10 text-white">
+      <h2 class="font-semibold text-2xl">Payments</h2>
+      <p class="text-2xl font-bold">$500</p>
+    </div>
+  </div>
+</div>
+
+    
+    
+    <!-- New Registrations and Doughnut Chart -->
+    <div class="grid grid-cols-3 gap-6">
+      <!-- Table -->
+      <div class="col-span-2 bg-white p-6 rounded-lg shadow">
+        <h2 class="text-lg font-semibold mb-4">New Registrations</h2>
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-gray-200">
+              <th class="p-3">Sr. No</th>
+              <th class="p-3">Name</th>
+              <th class="p-3">Contact</th>
+              <th class="p-3">Class</th>
+              <th class="p-3">Period</th>
+              <th class="p-3">Time Slot</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="p-3">1</td>
+              <td class="p-3">Rohan Jadhav</td>
+              <td class="p-3">1234567890</td>
+              <td class="p-3">Yoga</td>
+              <td class="p-3">2 Months</td>
+              <td class="p-3">08:00-09:00</td>
+            </tr>
+
+            <tr>
+              <td class="p-3">2</td>
+              <td class="p-3">Rohan Jadhav</td>
+              <td class="p-3">1234567890</td>
+              <td class="p-3">Yoga</td>
+              <td class="p-3">2 Months</td>
+              <td class="p-3">08:00-09:00</td>
+            </tr>
+
+            <tr>
+              <td class="p-3">3</td>
+              <td class="p-3">Rohan Jadhav</td>
+              <td class="p-3">1234567890</td>
+              <td class="p-3">Yoga</td>
+              <td class="p-3">2 Months</td>
+              <td class="p-3">08:00-09:00</td>
+            </tr>
+
+            <tr>
+              <td class="p-3">4</td>
+              <td class="p-3">Rohan Jadhav</td>
+              <td class="p-3">1234567890</td>
+              <td class="p-3">Yoga</td>
+              <td class="p-3">2 Months</td>
+              <td class="p-3">08:00-09:00</td>
+            </tr>
+
+            <tr>
+              <td class="p-3">5</td>
+              <td class="p-3">Rohan Jadhav</td>
+              <td class="p-3">1234567890</td>
+              <td class="p-3">Yoga</td>
+              <td class="p-3">2 Months</td>
+              <td class="p-3">08:00-09:00</td>
+            </tr>
+
+            <tr>
+              <td class="p-3">6</td>
+              <td class="p-3">Rohan Jadhav</td>
+              <td class="p-3">1234567890</td>
+              <td class="p-3">Yoga</td>
+              <td class="p-3">2 Months</td>
+              <td class="p-3">08:00-09:00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Chart -->
+      <div class="bg-white p-6 rounded-lg shadow flex flex-col">
+        <h2 class="text-lg font-semibold mb-4">Total Members-80</h2>
+        <canvas
+          id="membersDoughnutChart"
+          width="150" height="150"
+        ></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Chart.js Script -->
+<script>
+  const ctx = document.getElementById("membersDoughnutChart").getContext("2d");
+
+  // Add a plugin for the center text
+Chart.register({
+  id: 'centerTextPlugin',
+  beforeDraw: (chart) => {
+    const { width } = chart;
+    const { ctx } = chart;
+    const total = chart.data.datasets[0].data.reduce((a, b) => a + b, 0); // Sum of data
+
+    ctx.save();
+    ctx.font = "bold 16px Arial"; // Customize font size and style
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillStyle = "#333"; // Text color
+    ctx.fillText(total, width / 2, chart.chartArea.top + (chart.chartArea.bottom - chart.chartArea.top) / 2);
+    ctx.restore();
+  }
+});
+
+
+  const membersDoughnutChart = new Chart(ctx, {
+    type: "doughnut",
+    data: {
+      labels: ["Girls", "Boys"],
+      datasets: [
+        {
+          data: [20, 60], // Example data
+          backgroundColor: ["#FF6384", "#36A2EB"],
+          hoverBackgroundColor: ["#FF6384", "#36A2EB"],
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      cutout: "80%", // Adjust the ring size
+      plugins: {
+        legend: {
+          display: true,
+          position: "bottom",
+        },
+        tooltip: {
+          callbacks: {
+            label: function (tooltipItem) {
+              return `${tooltipItem.label}: ${tooltipItem.raw}`;
+            },
+          },
+        },
+      },
+    },
+  });
+</script>
+</body>
+</html>
